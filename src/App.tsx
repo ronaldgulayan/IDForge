@@ -83,7 +83,11 @@ function App() {
         birthdate: data.birthdate,
         profile: profileUrl,
       });
-      window.print();
+
+      await new Promise((resolve) => {
+        window.print();
+      })
+
       reset();
     } catch (error: any) {
       window.alert(`Something Error: ${error.toString()}`);
