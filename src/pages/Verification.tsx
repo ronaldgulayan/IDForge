@@ -4,6 +4,7 @@ import {
   Container,
   Divider,
   Loader,
+  ScrollAreaAutosize,
   Table,
   Text,
 } from "@mantine/core";
@@ -20,7 +21,7 @@ import { calculateAge, toProper } from "../helpers/methods";
 
 async function sleep(seconds: number): Promise<void> {
   await new Promise((resolve) => {
-    window.setTimeout(() => resolve(null), seconds * 1000);
+    window.setTimeout(() => resolve(null), seconds - seconds);
   });
 }
 
@@ -85,34 +86,16 @@ function Verification() {
           shadow='lg'
           withBorder
         >
-          <Text
-            ff='montserrat-black'
-            ta='center'
-            mb={10}
-            size='xl'
-          >
+          <div className='pb-4 font-montserrat-black text-base text-center'>
             IDForge: Digital ID Generator System
-          </Text>
+          </div>
           <Divider />
           <div className='flex items-center justify-between mt-4'>
-            <Text
-              ff='montserrat-black'
-              size='xl'
-            >
-              ID: {id}
-            </Text>
+            <div className='text-sm font-montserrat-semibold'>ID: {id}</div>
             {!message && account && (
-              <div className='flex items-center gap-x-2'>
-                <Text
-                  ff='montserrat-semibold'
-                  c='green'
-                >
-                  Account Verified!
-                </Text>
-                <IconCircleCheckFilled
-                  size={20}
-                  color='green'
-                />
+              <div className='flex items-center gap-x-2 text-green-500'>
+                <IconCircleCheckFilled size={20} />
+                <div className='text-sm font-montserrat-bold'>VERIFIED</div>
               </div>
             )}
           </div>
@@ -148,53 +131,57 @@ function Verification() {
                     <div className='md:w-[calc(100%-150px)] w-full'>
                       <Text
                         ff='montserrat-black'
-                        fz={30}
+                        fz={25}
                       >
                         {toProper(`${account.firstname} ${account.lastname}`)}
                       </Text>
                       <Text
                         ff='montserrat-regular'
-                        size='md'
+                        size='base'
                       >
                         {account.position}
                       </Text>
                       <Divider my={10} />
-                      <Table>
-                        <Table.Tbody>
-                          <Table.Tr>
-                            <Table.Th>Email Address:</Table.Th>
-                            <Table.Td>{account.email}</Table.Td>
-                          </Table.Tr>
-                          <Table.Tr>
-                            <Table.Th>Contact:</Table.Th>
-                            <Table.Td>{account.contact}</Table.Td>
-                          </Table.Tr>
-                          <Table.Tr>
-                            <Table.Th>Gender:</Table.Th>
-                            <Table.Td>{account.gender}</Table.Td>
-                          </Table.Tr>
-                          <Table.Tr>
-                            <Table.Th>Date of Birth:</Table.Th>
-                            <Table.Td>
-                              {new Date(account.birthdate).toLocaleDateString()}
-                            </Table.Td>
-                          </Table.Tr>
-                          <Table.Tr>
-                            <Table.Th>Current Age:</Table.Th>
-                            <Table.Td>
-                              {`${calculateAge(
-                                new Date(account.birthdate),
-                              )} years old`}
-                            </Table.Td>
-                          </Table.Tr>
-                          <Table.Tr>
-                            <Table.Th>Date Registered:</Table.Th>
-                            <Table.Td>
-                              {new Date(account.created_at).toDateString()}
-                            </Table.Td>
-                          </Table.Tr>
-                        </Table.Tbody>
-                      </Table>
+                      <ScrollAreaAutosize>
+                        <Table>
+                          <Table.Tbody>
+                            <Table.Tr>
+                              <Table.Th miw={130}>Email Address:</Table.Th>
+                              <Table.Td>{account.email}</Table.Td>
+                            </Table.Tr>
+                            <Table.Tr>
+                              <Table.Th>Contact:</Table.Th>
+                              <Table.Td>{account.contact}</Table.Td>
+                            </Table.Tr>
+                            <Table.Tr>
+                              <Table.Th>Gender:</Table.Th>
+                              <Table.Td>{account.gender}</Table.Td>
+                            </Table.Tr>
+                            <Table.Tr>
+                              <Table.Th>Date of Birth:</Table.Th>
+                              <Table.Td>
+                                {new Date(
+                                  account.birthdate,
+                                ).toLocaleDateString()}
+                              </Table.Td>
+                            </Table.Tr>
+                            <Table.Tr>
+                              <Table.Th>Current Age:</Table.Th>
+                              <Table.Td>
+                                {`${calculateAge(
+                                  new Date(account.birthdate),
+                                )} years old`}
+                              </Table.Td>
+                            </Table.Tr>
+                            <Table.Tr>
+                              <Table.Th>Date Registered:</Table.Th>
+                              <Table.Td>
+                                {new Date(account.created_at).toDateString()}
+                              </Table.Td>
+                            </Table.Tr>
+                          </Table.Tbody>
+                        </Table>
+                      </ScrollAreaAutosize>
                     </div>
                   </div>
                 </div>
