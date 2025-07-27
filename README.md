@@ -9,12 +9,14 @@ IDForge is a modern web application that allows users to create, register, and p
 ## ✨ Features
 
 ### 🆔 ID Card Generation
+
 - **Professional Design**: Clean, JSON-themed ID card layout
 - **Dual-sided Cards**: Front and back card views with flip animation
 - **Real-time Preview**: Live preview of card as you input information
 - **Standard Dimensions**: Cards sized to industry-standard ID card dimensions (3.375" × 2.125")
 
 ### 👤 User Information Management
+
 - **Personal Details**: Name, position, email, contact number
 - **Profile Photo Upload**: Support for PNG, JPEG, and JPG formats
 - **Gender Selection**: Dropdown for gender specification
@@ -22,18 +24,21 @@ IDForge is a modern web application that allows users to create, register, and p
 - **Auto-generated ID**: Unique identifier for each card
 
 ### 🖨️ Printing & Export
+
 - **Direct Printing**: Browser-based printing with optimized print styles
 - **Print Preview**: Accurate representation of final printed card
 - **High-Quality Output**: Print-optimized CSS for crisp, professional results
 - **Standard Paper Support**: Designed for standard printer paper sizes
 
 ### 💾 Data Management
+
 - **Supabase Integration**: Secure cloud storage for user data
 - **Profile Image Storage**: Automated image upload and URL generation
 - **Form Validation**: Comprehensive input validation
 - **Data Reset**: Easy form clearing after successful registration
 
 ### 🎨 User Experience
+
 - **Responsive Design**: Works on desktop and mobile devices
 - **Modern UI**: Built with Mantine components and Tailwind CSS
 - **Confirmation Modals**: User-friendly confirmation dialogs
@@ -43,6 +48,7 @@ IDForge is a modern web application that allows users to create, register, and p
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **React 18** - Modern React with hooks
 - **TypeScript** - Type-safe development
 - **Vite** - Fast build tool and dev server
@@ -51,17 +57,20 @@ IDForge is a modern web application that allows users to create, register, and p
 - **React Router** - Client-side routing
 
 ### Backend & Storage
+
 - **Supabase** - Backend-as-a-Service
 - **PostgreSQL** - Database (via Supabase)
 - **Supabase Storage** - File storage for profile images
 
 ### Icons & Assets
+
 - **Tabler Icons** - Beautiful SVG icons
 - **Custom Background** - Branded background images
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v16 or higher)
 - npm or yarn package manager
 - Supabase account (for backend services)
@@ -69,24 +78,28 @@ IDForge is a modern web application that allows users to create, register, and p
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/ronaldgulayan/id-generator.git
-   cd id-generator
+   git clone https://github.com/ronaldgulayan/IDForge
+   cd IDForge
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
    Create a `.env` file in the root directory:
+
    ```env
    VITE_SUPABASE_URL=your_supabase_url
    VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
 4. **Start the development server**
+
    ```bash
    npm run dev
    ```
@@ -99,6 +112,7 @@ IDForge is a modern web application that allows users to create, register, and p
 ### Creating an ID Card
 
 1. **Fill in Personal Information**
+
    - Enter your position/job title
    - Input first name and last name
    - Select your birthdate
@@ -107,11 +121,13 @@ IDForge is a modern web application that allows users to create, register, and p
    - Enter contact number
 
 2. **Upload Profile Photo**
+
    - Click "Select your profile" button
    - Choose an image file (PNG, JPEG, or JPG)
    - Preview will appear on the card
 
 3. **Preview Your Card**
+
    - Use the "Flip" button to see both sides
    - Verify all information is correct
    - Check that the photo displays properly
@@ -154,12 +170,14 @@ src/
 ## 🎨 Customization
 
 ### Styling
+
 - **Card Design**: Modify `src/pages/cards/Front.tsx` and `Back.tsx`
 - **Print Styles**: Edit `src/pages/styles/card.css`
 - **Colors**: Update Tailwind classes or CSS variables
 - **Layout**: Adjust component structure in main files
 
 ### Functionality
+
 - **Form Fields**: Add/remove fields in `Form.tsx` and type definitions
 - **Validation**: Modify validation rules in form handlers
 - **Database Schema**: Update Supabase table structure as needed
@@ -170,6 +188,7 @@ src/
 
 1. **Create a new Supabase project**
 2. **Set up the accounts table**:
+
    ```sql
    CREATE TABLE accounts (
      id SERIAL PRIMARY KEY,
@@ -192,11 +211,13 @@ src/
 ## 🚀 Deployment
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
 
 ### Deploy to Netlify/Vercel
+
 1. Connect your repository
 2. Set environment variables
 3. Deploy with build command: `npm run build`
@@ -217,9 +238,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Developer
 
 **Ron Gulayan**
+
 - Portfolio: [ronaldgulayan.github.io/portfolio](https://ronaldgulayan.github.io/portfolio/)
 - GitHub: [@ronaldgulayan](https://github.com/ronaldgulayan)
-- Project Repository: [id-generator](https://github.com/ronaldgulayan/id-generator)
+- Project Repository: [IDForge](https://github.com/ronaldgulayan/IDForge)
 
 ## 🙏 Acknowledgments
 
