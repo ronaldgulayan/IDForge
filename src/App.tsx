@@ -93,7 +93,7 @@ function App() {
   }
 
   return (
-    <div className=' bg-[url(./images/bg2.png)] md:py-0 py-7 bg-no-repeat bg-center bg-cover w-full min-h-screen flex flex-col items-center justify-center bg-slate-50'>
+    <div className=' bg-[url(/images/bg2.png)] md:py-0 py-7 bg-no-repeat bg-center bg-cover w-full min-h-screen flex flex-col items-center justify-center bg-slate-50'>
       <Text
         ff='montserrat-black'
         size='xl'
