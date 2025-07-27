@@ -86,6 +86,7 @@ function App() {
 
       await new Promise((resolve) => {
         window.print();
+        resolve(true)
       })
 
       reset();
