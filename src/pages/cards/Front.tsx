@@ -39,7 +39,7 @@ function Front(props: GlobalCardProps) {
         <div className='flex gap-1 h-[110px]'>
           <img
             alt='No Image Found'
-            className='border border-[#0005] w-[110px] h-[110px] rounded-[2px]'
+            className='border border-[#0005] w-[110px] h-[110px] rounded-[2px] object-cover'
             src={props.data.preview}
           />
           <div className='w-[calc(100%-110px)] font-montserrat-regular h-full flex items-center'>
