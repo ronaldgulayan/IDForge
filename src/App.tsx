@@ -169,7 +169,7 @@ function App() {
                 </Link>
                 <Link
                   target='_blank'
-                  to='https://github.com/ronaldgulayan/id-generator'
+                  to='https://github.com/ronaldgulayan/IDForge'
                 >
                   <IconBrandGithubFilled size={17} />
                 </Link>
