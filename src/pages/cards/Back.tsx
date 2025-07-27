@@ -21,7 +21,7 @@ function Back(props: GlobalCardProps) {
           color='#0005'
           my={8}
         />
-        <div className='space-y-2 h-[calc(100%-3.8rem)] flex flex-col'>
+        <div className='h-[calc(100%-3.8rem)] space-y-[0.4rem] flex flex-col'>
           <BackItem
             label='Date Created'
             value={new Date().toLocaleDateString()}
@@ -39,7 +39,7 @@ function Back(props: GlobalCardProps) {
             value={props.data.position || "-"}
           />
         </div>
-        <div className='h-6 flex font-montserrat-black items-end justify-center border-t border-t-[#0005]'>
+        <div className='pt-1 flex font-montserrat-black items-end justify-center border-t border-t-[#0005]'>
           {props.data.id}
         </div>
       </div>

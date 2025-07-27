@@ -55,13 +55,13 @@ function App() {
 
     const confirmation = await new Promise((resolve) => {
       modals.openConfirmModal({
-        title: 'Confirm Download',
+        title: "Confirm Download",
         children: (
-          <Text size="sm">
+          <Text size='sm'>
             Are you sure you want to download and register this card?
           </Text>
         ),
-        labels: { confirm: 'Confirm', cancel: 'Cancel' },
+        labels: { confirm: "Confirm", cancel: "Cancel" },
         onCancel: () => resolve(false),
         onConfirm: () => resolve(true),
       });
@@ -84,7 +84,7 @@ function App() {
         profile: profileUrl,
       });
       window.print();
-      reset()
+      reset();
     } catch (error: any) {
       window.alert(`Something Error: ${error.toString()}`);
     } finally {
@@ -98,84 +98,87 @@ function App() {
         ff='montserrat-black'
         size='xl'
         mb={10}
+        ta='center'
       >
         {SYSTEM_TITLE}
       </Text>
       <div className='flex md:flex-row flex-col gap-x-4 px-10 pb-6 md:pt-10 pt-7 rounded-lg border border-slate-400 shadow-lg bg-white'>
-        <div className='space-y-2 w-fit'>
-          <Text
-            ff='montserrat-black'
-            size='lg'
-            className='block md:hidden'
-            mb={10}
-          >
-            Card Information
-          </Text>
-          <Card
-            data={data}
-            setData={setData}
-            isFlip={isFlip}
-          />
-          <Group
-            grow
-            gap={8}
-          >
-            <FileInput
-              accept='image/png, image/jpeg, image/jpg'
-              placeholder='Select your profile'
-              clearable
-              value={data.file}
-              onChange={(value) =>
-                setData((curr) => ({
-                  ...curr,
-                  file: value,
-                  preview: value ? URL.createObjectURL(value) : undefined,
-                }))
-              }
+        <div className='flex items-center'>
+          <div className='space-y-2 w-fit'>
+            <Text
+              ff='montserrat-black'
+              size='lg'
+              className='block md:hidden'
+              mb={10}
+            >
+              Card Information
+            </Text>
+            <Card
+              data={data}
+              setData={setData}
+              isFlip={isFlip}
             />
-            <Button
-              leftSection={<IconFlipVertical size={18} />}
-              onClick={() => setIsFlip(!isFlip)}
+            <Group
+              grow
+              gap={8}
             >
-              Flip
-            </Button>
-          </Group>
-          <span className='space-y-2 md:block hidden'>
-            <Button
-              loading={submitLoading}
-              loaderProps={{ type: "dots" }}
-              onClick={submitEventHandler}
-              fullWidth
-              type='submit'
-              color='dark'
-              leftSection={<IconDownload size={18} />}
-              disabled={Object.entries(data).some((v) => !v[1])}
-            >
-              Download and Register Card
-            </Button>
-            <div className='flex items-start justify-between'>
-              <Text
-                size='xs'
-                c='dimmed'
+              <FileInput
+                accept='image/png, image/jpeg, image/jpg'
+                placeholder='Select Profile'
+                clearable
+                value={data.file}
+                onChange={(value) =>
+                  setData((curr) => ({
+                    ...curr,
+                    file: value,
+                    preview: value ? URL.createObjectURL(value) : undefined,
+                  }))
+                }
+              />
+              <Button
+                leftSection={<IconFlipVertical size={18} />}
+                onClick={() => setIsFlip(!isFlip)}
               >
-                Developed by Ron
-              </Text>
-              <div className='flex gap-x-2'>
-                <Link
-                  target='_blank'
-                  to='https://ronaldgulayan.github.io/portfolio/'
+                Flip
+              </Button>
+            </Group>
+            <span className='space-y-2 md:block hidden'>
+              <Button
+                loading={submitLoading}
+                loaderProps={{ type: "dots" }}
+                onClick={submitEventHandler}
+                fullWidth
+                type='submit'
+                color='dark'
+                leftSection={<IconDownload size={18} />}
+                disabled={Object.entries(data).some((v) => !v[1])}
+              >
+                Download and Register Card
+              </Button>
+              <div className='flex items-start justify-between'>
+                <Text
+                  size='xs'
+                  c='dimmed'
                 >
-                  <IconCode size={17} />
-                </Link>
-                <Link
-                  target='_blank'
-                  to='https://github.com/ronaldgulayan/IDForge'
-                >
-                  <IconBrandGithubFilled size={17} />
-                </Link>
+                  Developed by Ron
+                </Text>
+                <div className='flex gap-x-2'>
+                  <Link
+                    target='_blank'
+                    to='https://ronaldgulayan.github.io/portfolio/'
+                  >
+                    <IconCode size={17} />
+                  </Link>
+                  <Link
+                    target='_blank'
+                    to='https://github.com/ronaldgulayan/IDForge'
+                  >
+                    <IconBrandGithubFilled size={17} />
+                  </Link>
+                </div>
               </div>
-            </div>
-          </span>
+            </span>
+          </div>
         </div>
         <Form
           loading={submitLoading}

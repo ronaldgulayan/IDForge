@@ -25,7 +25,7 @@ type FormProps = GlobalCardProps & {
 
 function Form(props: FormProps) {
   return (
-    <div className='w-[23rem] space-y-3'>
+    <div className='md:w-[23rem] full space-y-3'>
       <Text
         ff='montserrat-black'
         size='lg'
@@ -78,7 +78,7 @@ function Form(props: FormProps) {
       >
         <TextInput
           label='Email Address'
-          placeholder='Enter Email Address'
+          placeholder='Enter Email'
           maxLength={30}
           required
           type='email'
@@ -125,7 +125,7 @@ function Form(props: FormProps) {
         <DatePickerInput
           label='Date of Birth'
           required
-          placeholder='Select Date of Birth'
+          placeholder='Date of Birth'
           maxDate={new Date()}
           minDate={new Date(1900, 0, 1)}
           clearable

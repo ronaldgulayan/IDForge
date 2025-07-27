@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-* {
-  font-family: "montserrat-regular";
-}
-
 @font-face {
   font-family: "montserrat-bold";
   src: url(./assets/fonts/Montserrat-Bold.ttf);

@@ -9,13 +9,9 @@ function BackItem(props: BackItemProps) {
   return (
     <div>
       <Text fz={9}>{props.label}</Text>
-      <Text
-        lh={1}
-        ff='montserrat-bold'
-        size='sm'
-      >
+      <p className='font-montserrat-bold md:text-xs text-[0.7rem] leading-[0.75rem] md:leading-[0.8rem]'>
         {props.value}
-      </Text>
+      </p>
     </div>
   );
 }

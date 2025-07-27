@@ -1,18 +1,15 @@
-import { Avatar, Divider, Text } from "@mantine/core";
+import { Divider, Text } from "@mantine/core";
 import { IconCode, IconMail, IconPhone } from "@tabler/icons-react";
 import type { GlobalCardProps } from "../../types";
 import { toProper } from "../../helpers/methods";
 
 function toCode(label: string, text: string) {
   return (
-    <Text
-      size='xs'
-      pl={10}
-    >
+    <div className='pl-2'>
       <span style={{ color: "blue" }}>"{label}"</span>
       <span>: </span>
-      <span style={{ color: "green" }}>"{text}"</span>
-    </Text>
+      <span style={{ color: "green" }}>"{text}",</span>
+    </div>
   );
 }
 
@@ -22,16 +19,14 @@ function Front(props: GlobalCardProps) {
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-x-2'>
           <IconCode size={25} />
-          <Text
-            ff='montserrat-semibold'
-            size='sm'
-          >
+          <div className='font-montserrat-bold'>
             {props.data.position || "Position"}
-          </Text>
+          </div>
         </div>
         <Text
           ff='montserrat-bold'
           size='sm'
+          c='blue'
         >
           JSON
         </Text>
@@ -40,29 +35,28 @@ function Front(props: GlobalCardProps) {
         color='#0008'
         my={8}
       />
-      <div className='flex gap-2'>
-        <Avatar
-          size={125}
-          src={props.data.preview}
-          radius={0}
-          style={{
-            border: "1px solid #0005",
-          }}
-        />
-        <div className='w-[calc(100%-125px)] h-[125px] overflow-hidden flex items-center'>
-          <div>
-            <span className='text-violet-600 text-sm'>{"{"}</span>
-            <br />
-            {toCode("ID", props.data.id)}
-            {toCode("Position", props.data.position || "-")}
-            {toCode("Given Name", toProper(props.data.firstname) || "-")}
-            {toCode("Surname", toProper(props.data.lastname) || "-")}
-            {toCode("Gender", props.data.gender || "None")}
-            <span className='text-violet-600 text-sm'>{"}"}</span>
+      <div className='flex flex-col h-fit'>
+        <div className='flex gap-1 h-[110px]'>
+          <img
+            alt='No Image Found'
+            className='border border-[#0005] w-[110px] h-[110px] rounded-[2px]'
+            src={props.data.preview}
+          />
+          <div className='w-[calc(100%-110px)] font-montserrat-regular h-full flex items-center'>
+            <div className='h-fit text-[0.6rem] md:text-[0.6rem]'>
+              <span className='text-violet-600'>{"{"}</span>
+              <br />
+              {toCode("ID", props.data.id)}
+              {toCode("Position", props.data.position || "-")}
+              {toCode("Given Name", toProper(props.data.firstname) || "-")}
+              {toCode("Surname", toProper(props.data.lastname) || "-")}
+              {toCode("Gender", props.data.gender || "None")}
+              <span className='text-violet-600'>{"}"}</span>
+            </div>
           </div>
         </div>
       </div>
-      <div className='text-xs h-7 flex items-center gap-x-2'>
+      <div className='text-[0.6rem] md:text-xs flex font-montserrat-regular items-center h-7 gap-x-2 overflow-hidden'>
         <span className='flex items-center gap-x-1'>
           <IconMail size={12} />
           <span>{props.data.email.toLowerCase() || "-"}</span>
