@@ -84,7 +84,7 @@ function App() {
         profile: profileUrl,
       });
       window.print();
-      reset();
+      window.setTimeout(() => reset(), 500);
     } catch (error: any) {
       window.alert(`Something Error: ${error.toString()}`);
     } finally {
