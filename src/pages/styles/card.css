@@ -58,6 +58,7 @@
   }
 
   .card-container {
+    --webkit-print-color-adjust: exact;
     width: 3.375in;
     height: 2.125in;
     margin: 0 !important;
